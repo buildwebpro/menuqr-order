@@ -12,45 +12,45 @@ import {
 import { PublicNav } from "@/components/nav/PublicNav";
 
 export const metadata: Metadata = {
-  title: "MenuQR – Create Your Restaurant's Online Menu & QR Code",
+  title: "MenuQR – สร้างเมนูออนไลน์และ QR Code สำหรับร้านอาหารของคุณ",
 };
 
 const features = [
   {
     icon: <UtensilsCrossed className="text-orange-500" size={24} />,
-    title: "Beautiful Digital Menu",
+    title: "เมนูดิจิทัลที่สวยงาม",
     description:
-      "Create a stunning online menu with categories, images, prices, and descriptions that delight your customers.",
+      "สร้างเมนูออนไลน์ที่น่าดึงดูดพร้อมหมวดหมู่ รูปภาพ ราคา และคำอธิบายที่ดึงดูดลูกค้า",
   },
   {
     icon: <QrCode className="text-orange-500" size={24} />,
-    title: "Instant QR Code",
+    title: "QR Code ทันที",
     description:
-      "Generate a QR code in seconds. Download it and print it on your tables, receipts, or storefront.",
+      "สร้าง QR Code ในเสี้ยววินาที ดาวน์โหลดและพิมพ์ที่โต๊ะ ใบเสร็จ หรือหน้าร้าน",
   },
   {
     icon: <Smartphone className="text-orange-500" size={24} />,
-    title: "Mobile-First Design",
+    title: "ออกแบบเน้นมือถือ",
     description:
-      "Your menu looks amazing on every device. Customers scan and browse comfortably on their phones.",
+      "เมนูของคุณมีลักษณะที่สวยงามบนทุกอุปกรณ์ ลูกค้าสามารถแสกน QR และเบราว์ได้อย่างสะดวก",
   },
   {
     icon: <Zap className="text-orange-500" size={24} />,
-    title: "Easy to Manage",
+    title: "ใช้งานง่าย",
     description:
-      "Update menu items, prices, and availability in real time — no technical skills needed.",
+      "อัปเดตรายการเมนู ราคา และความพร้อมใช้งานแบบเรียลไทม์ ไม่ต้องมีทักษะทางเทคนิค",
   },
   {
     icon: <Shield className="text-orange-500" size={24} />,
-    title: "Secure & Reliable",
+    title: "ปลอดภัยและเชื่อถือได้",
     description:
-      "Your data is protected. Each restaurant owner has their own private dashboard.",
+      "ข้อมูลของคุณได้รับการป้องกัน เจ้าของร้านแต่ละรายมีแดชบอร์ดส่วนตัวของตนเอง",
   },
   {
     icon: <Star className="text-orange-500" size={24} />,
-    title: "Free to Start",
+    title: "เริ่มต้นฟรี",
     description:
-      "Get started with our free plan. Upgrade to Pro when you need more features.",
+      "เริ่มต้นด้วยแผนฟรีของเรา อัปเกรดเป็น Pro เมื่อคุณต้องการคุณสมบัติเพิ่มเติม",
   },
 ];
 
@@ -59,15 +59,15 @@ export default function LandingPage() {
     <>
       <PublicNav />
       <main className="px-4 py-16 max-w-6xl mx-auto">
-        <h1 className="text-4xl font-bold mb-6">Restaurant Online Menu SaaS</h1>
-        <p className="text-gray-600 mb-10 max-w-2xl">Create a beautiful digital menu, generate a QR code, and let customers browse from their phones.</p>
+        <h1 className="text-4xl font-bold mb-6">MenuQR – เมนูร้านอาหารออนไลน์</h1>
+        <p className="text-gray-600 mb-10 max-w-2xl">สร้างเมนูดิจิทัลที่สวยงาม สร้าง QR Code และปล่อยให้ลูกค้าเบราว์จากโทรศัพท์ของพวกเขา</p>
         <div className="flex gap-3 mb-16">
-          <Link href="/auth/signup" className="inline-flex items-center gap-2 bg-orange-500 text-white px-6 py-3 rounded-lg">Get Started <ChevronRight size={16} /></Link>
-          <Link href="/pricing" className="inline-flex items-center gap-2 border border-gray-300 px-6 py-3 rounded-lg">Pricing</Link>
+          <Link href="/auth/signup" className="inline-flex items-center gap-2 bg-orange-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-orange-600 transition-colors">เริ่มต้นฟรี <ChevronRight size={16} /></Link>
+          <Link href="/pricing" className="inline-flex items-center gap-2 border border-gray-300 px-6 py-3 rounded-lg hover:bg-gray-50 transition-colors">แผนราคา</Link>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {features.map((f) => (
-            <div key={f.title} className="border rounded-xl p-5">
+            <div key={f.title} className="border rounded-xl p-5 hover:border-orange-200 hover:shadow-sm transition-all">
               {f.icon}
               <h3 className="font-semibold mt-3 mb-2">{f.title}</h3>
               <p className="text-sm text-gray-500">{f.description}</p>

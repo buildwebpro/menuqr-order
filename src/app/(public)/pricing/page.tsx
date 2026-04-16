@@ -3,28 +3,28 @@ import Link from "next/link";
 import { Check, Zap } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Pricing – MenuQR",
-  description: "Simple, transparent pricing. Start free, upgrade when you need more.",
+  title: "แผนราคา – MenuQR",
+  description: "แผนราคาแบบชัดเจนและโปร่งใส เริ่มต้นฟรีและอัปเกรดเมื่อคุณต้องการ",
 };
 
 const plans = [
   {
     id: "free",
-    name: "Free",
+    name: "ฟรี",
     price: 0,
-    description: "Perfect for getting started",
+    description: "เหมาะสำหรับการเริ่มต้น",
     badge: null,
     features: [
-      "1 restaurant",
-      "Up to 20 menu items",
-      "QR code generation",
-      "Public menu page",
-      "Mobile-friendly design",
-      "Contact buttons (call, Line, map)",
-      "MenuQR branding",
+      "ร้านอาหาร 1 แห่ง",
+      "รายการเมนูสูงสุด 20 รายการ",
+      "สร้าง QR Code",
+      "หน้าเมนูสาธารณะ",
+      "ออกแบบเน้นมือถือ",
+      "ปุ่มติดต่อ (โทร Line แผนที่)",
+      "แสดงแบรนด์ MenuQR",
     ],
-    notIncluded: ["Remove MenuQR branding", "Custom theme color", "Unlimited menu items"],
-    cta: "Get started free",
+    notIncluded: ["ซ่อนแบรนด์ MenuQR", "สีธีมแบบกำหนดเอง", "รายการเมนูไม่จำกัด"],
+    cta: "สมัครฟรี",
     ctaHref: "/auth/signup",
     highlighted: false,
   },
@@ -32,21 +32,21 @@ const plans = [
     id: "pro",
     name: "Pro",
     price: 299,
-    description: "For restaurants that need more",
-    badge: "Most Popular",
+    description: "สำหรับร้านอาหารที่ต้องการมากขึ้น",
+    badge: "ยอดนิยม",
     features: [
-      "1 restaurant",
-      "Unlimited menu items",
-      "QR code generation",
-      "Public menu page",
-      "Mobile-friendly design",
-      "Contact buttons (call, Line, map)",
-      "Remove MenuQR branding",
-      "Custom theme color",
-      "Priority support",
+      "ร้านอาหาร 1 แห่ง",
+      "รายการเมนูไม่จำกัด",
+      "สร้าง QR Code",
+      "หน้าเมนูสาธารณะ",
+      "ออกแบบเน้นมือถือ",
+      "ปุ่มติดต่อ (โทร Line แผนที่)",
+      "ซ่อนแบรนด์ MenuQR",
+      "สีธีมแบบกำหนดเอง",
+      "ดำเนินการสนับสนุนลำดับความสำคัญ",
     ],
     notIncluded: [],
-    cta: "Upgrade to Pro",
+    cta: "อัปเกรดเป็น Pro",
     ctaHref: "/auth/signup",
     highlighted: true,
   },
@@ -58,10 +58,10 @@ export default function PricingPage() {
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-14">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Simple, transparent pricing
+            แผนราคาแบบชัดเจนและโปร่งใส
           </h1>
           <p className="text-lg text-gray-600">
-            Start for free. Upgrade when you need more.
+            เริ่มต้นฟรี อัปเกรดเมื่อคุณต้องการมากขึ้น
           </p>
         </div>
 
@@ -89,10 +89,10 @@ export default function PricingPage() {
                 <p className="text-sm text-gray-500 mb-4">{plan.description}</p>
                 <div className="flex items-baseline gap-1">
                   <span className="text-4xl font-bold text-gray-900">
-                    {plan.price === 0 ? "Free" : `฿${plan.price}`}
+                    {plan.price === 0 ? "ฟรี" : `฿${plan.price}`}
                   </span>
                   {plan.price > 0 && (
-                    <span className="text-gray-500 text-sm">/month</span>
+                    <span className="text-gray-500 text-sm">/เดือน</span>
                   )}
                 </div>
               </div>
@@ -128,7 +128,7 @@ export default function PricingPage() {
 
         <div className="mt-14 text-center">
           <p className="text-gray-500 text-sm">
-            Billing integration coming soon. Pro features currently unlocked for testing.
+            ส่วนการชำระเงินจะมาเร็ว ๆ นี้ คุณสมบัติ Pro จะปลดล็อคสำหรับการทดสอบในขณะนี้
           </p>
         </div>
       </div>

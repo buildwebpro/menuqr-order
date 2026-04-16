@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import QRCode from "qrcode";
 import { Download } from "lucide-react";
 import { Button } from "./ui/button";
+import { th } from "@/lib/i18n";
 
 interface QRCodeDisplayProps {
   url: string;
@@ -39,7 +40,7 @@ export function QRCodeDisplay({ url, restaurantName }: QRCodeDisplayProps) {
         <canvas ref={canvasRef} />
       </div>
       <p className="text-sm text-gray-500 text-center max-w-xs">
-        Scan this QR code to view the menu for <strong>{restaurantName}</strong>
+        สแกน QR Code นี้เพื่อดูเมนูสำหรับ <strong>{restaurantName}</strong>
       </p>
       <Button
         onClick={handleDownload}
@@ -48,7 +49,7 @@ export function QRCodeDisplay({ url, restaurantName }: QRCodeDisplayProps) {
         size="md"
       >
         <Download size={16} />
-        Download QR Code PNG
+        {th.qrCode.download}
       </Button>
     </div>
   );

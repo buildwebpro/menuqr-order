@@ -4,7 +4,7 @@ import { UtensilsCrossed } from "lucide-react";
 import { SignInForm } from "./SignInForm";
 
 export const metadata: Metadata = {
-  title: "Sign In – MenuQR",
+  title: "เข้าสู่ระบบ – MenuQR",
 };
 
 export default function SignInPage() {
@@ -16,8 +16,8 @@ export default function SignInPage() {
             <UtensilsCrossed className="text-orange-500" size={28} />
             MenuQR
           </Link>
-          <h1 className="text-2xl font-bold text-gray-900">Welcome back</h1>
-          <p className="text-gray-500 text-sm mt-1">Sign in to your dashboard</p>
+          <h1 className="text-2xl font-bold text-gray-900">ยินดีต้อนรับกลับมา</h1>
+          <p className="text-gray-500 text-sm mt-1">เข้าสู่ระบบแดชบอร์ดของคุณ</p>
         </div>
 
         <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-8">
@@ -25,9 +25,9 @@ export default function SignInPage() {
         </div>
 
         <p className="text-center text-sm text-gray-500 mt-6">
-          {"Don't have an account? "}
+          {"ยังไม่มีบัญชี? "}
           <Link href="/auth/signup" className="text-orange-600 font-medium hover:underline">
-            Sign up free
+            สมัครฟรี
           </Link>
         </p>
       </div>

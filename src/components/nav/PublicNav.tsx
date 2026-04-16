@@ -17,14 +17,14 @@ export async function PublicNav() {
             href="/pricing"
             className="text-sm text-gray-600 hover:text-gray-900 px-3 py-2 transition-colors hidden sm:inline-flex"
           >
-            Pricing
+            แผนราคา
           </Link>
           {session ? (
             <Link
               href="/dashboard"
               className="bg-orange-500 hover:bg-orange-600 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors"
             >
-              Dashboard
+              แดชบอร์ด
             </Link>
           ) : (
             <>
@@ -32,13 +32,13 @@ export async function PublicNav() {
                 href="/auth/signin"
                 className="text-sm text-gray-600 hover:text-gray-900 px-3 py-2 transition-colors"
               >
-                Sign in
+                เข้าสู่ระบบ
               </Link>
               <Link
                 href="/auth/signup"
                 className="bg-orange-500 hover:bg-orange-600 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors"
               >
-                Get started free
+                สมัครฟรี
               </Link>
             </>
           )}

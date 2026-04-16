@@ -19,7 +19,7 @@ export function SignInForm() {
         </div>
       )}
       <Input
-        label="Email"
+        label="อีเมล"
         name="email"
         type="email"
         placeholder="you@example.com"
@@ -29,22 +29,22 @@ export function SignInForm() {
       />
       <div>
         <Input
-          label="Password"
+          label="รหัสผ่าน"
           name="password"
           type="password"
-          placeholder="Enter your password"
+          placeholder="ป้อนรหัสผ่านของคุณ"
           required
           autoComplete="current-password"
           error={state.fieldErrors?.password?.[0]}
         />
         <div className="text-right mt-1">
           <Link href="/auth/forgot-password" className="text-xs text-orange-600 hover:underline">
-            Forgot password?
+            ลืมรหัสผ่าน?
           </Link>
         </div>
       </div>
       <Button type="submit" className="w-full" loading={isPending}>
-        Sign in
+        เข้าสู่ระบบ
       </Button>
     </form>
   );

@@ -4,7 +4,7 @@ import { UtensilsCrossed } from "lucide-react";
 import { SignUpForm } from "./SignUpForm";
 
 export const metadata: Metadata = {
-  title: "Sign Up – MenuQR",
+  title: "สมัครสมาชิก – MenuQR",
 };
 
 export default function SignUpPage() {
@@ -16,8 +16,8 @@ export default function SignUpPage() {
             <UtensilsCrossed className="text-orange-500" size={28} />
             MenuQR
           </Link>
-          <h1 className="text-2xl font-bold text-gray-900">Create your account</h1>
-          <p className="text-gray-500 text-sm mt-1">Free to start. No credit card required.</p>
+          <h1 className="text-2xl font-bold text-gray-900">สร้างบัญชีของคุณ</h1>
+          <p className="text-gray-500 text-sm mt-1">ฟรีในการเริ่มต้น ไม่ต้องใช้บัตรเครดิต</p>
         </div>
 
         <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-8">
@@ -25,9 +25,9 @@ export default function SignUpPage() {
         </div>
 
         <p className="text-center text-sm text-gray-500 mt-6">
-          Already have an account?{" "}
+          มีบัญชีอยู่แล้วหรือ?{" "}
           <Link href="/auth/signin" className="text-orange-600 font-medium hover:underline">
-            Sign in
+            เข้าสู่ระบบ
           </Link>
         </p>
       </div>

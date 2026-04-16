@@ -4,6 +4,7 @@ import { userSubscriptions, subscriptionPlans } from "@/db/schema";
 import { eq, and } from "drizzle-orm";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { th } from "@/lib/i18n";
 
 export default async function SubscriptionPage() {
   const session = await getSession();
@@ -21,28 +22,28 @@ export default async function SubscriptionPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-gray-900">Subscription</h1>
-        <p className="text-gray-500">Billing integration is mocked for MVP. Plan gating is active.</p>
+        <h1 className="text-2xl font-bold text-gray-900">{th.subscription.title}</h1>
+        <p className="text-gray-500">ส่วนการชำระเงินถูกเลียนแบบสำหรับ MVP การจำกัดแผนใช้งานอยู่</p>
       </div>
 
       <div className="bg-white border rounded-xl p-6 space-y-4">
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-sm text-gray-500">Current plan</p>
-            <h2 className="text-xl font-semibold text-gray-900">{plan?.name ?? "Free"}</h2>
+            <p className="text-sm text-gray-500">{th.subscription.currentPlan}</p>
+            <h2 className="text-xl font-semibold text-gray-900">{plan?.name ?? th.subscription.free}</h2>
           </div>
-          <Badge variant={plan?.id === "pro" ? "success" : "default"}>{plan?.id === "pro" ? "Pro" : "Free"}</Badge>
+          <Badge variant={plan?.id === "pro" ? "success" : "default"}>{plan?.id === "pro" ? th.subscription.pro : th.subscription.free}</Badge>
         </div>
 
         <ul className="text-sm text-gray-600 space-y-1">
-          <li>Menu items: {plan?.maxMenuItems == null ? "Unlimited" : `Up to ${plan.maxMenuItems}`}</li>
-          <li>Restaurants: {plan?.maxRestaurants ?? 1}</li>
-          <li>Remove branding: {plan?.removeBranding ? "Yes" : "No"}</li>
-          <li>Custom theme color: {plan?.customTheme ? "Yes" : "No"}</li>
+          <li>{th.subscription.menuItems}: {plan?.maxMenuItems == null ? th.general.unlimited : `สูงสุด ${plan.maxMenuItems}`}</li>
+          <li>{th.subscription.maxRestaurants}: {plan?.maxRestaurants ?? 1}</li>
+          <li>{th.subscription.removeBranding}: {plan?.removeBranding ? "ใช่" : "ไม่"}</li>
+          <li>{th.subscription.customTheme}: {plan?.customTheme ? "ใช่" : "ไม่"}</li>
         </ul>
 
         <div className="pt-2">
-          <Button variant="primary">Upgrade (Mock)</Button>
+          <Button variant="primary">{th.subscription.upgradeMock}</Button>
         </div>
       </div>
     </div>

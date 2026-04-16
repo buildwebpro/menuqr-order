@@ -4,8 +4,9 @@ import { db } from "@/db";
 import { restaurants } from "@/db/schema";
 import { eq } from "drizzle-orm";
 import { RestaurantForm } from "./RestaurantForm";
+import { th } from "@/lib/i18n";
 
-export const metadata: Metadata = { title: "Restaurant Settings" };
+export const metadata: Metadata = { title: "การตั้งค่าร้านอาหาร – MenuQR" };
 
 export default async function RestaurantPage() {
   const session = await getSession();
@@ -20,8 +21,8 @@ export default async function RestaurantPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-gray-900">Restaurant Settings</h1>
-        <p className="text-gray-500">Manage your restaurant profile and public menu details.</p>
+        <h1 className="text-2xl font-bold text-gray-900">{th.restaurant.title}</h1>
+        <p className="text-gray-500">{th.restaurant.description}</p>
       </div>
       <RestaurantForm restaurant={restaurant ?? null} />
     </div>

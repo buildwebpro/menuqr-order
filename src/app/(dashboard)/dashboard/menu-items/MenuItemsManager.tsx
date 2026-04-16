@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Input, Select } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { formatPrice } from "@/lib/utils";
+import { th } from "@/lib/i18n";
 
 const initialState: ActionResult = { success: false };
 
@@ -17,22 +18,22 @@ export function MenuItemsManager({ restaurant, items, categories }: { restaurant
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-gray-900">Menu Items</h1>
-        <p className="text-gray-500">Add dishes and manage availability.</p>
+        <h1 className="text-2xl font-bold text-gray-900">{th.menuItems.title}</h1>
+        <p className="text-gray-500">{th.menuItems.description}</p>
       </div>
 
       <form action={action} className="bg-white border rounded-xl p-4 grid md:grid-cols-4 gap-3">
         <input type="hidden" name="restaurantId" value={restaurant.id} />
         {state.error && <p className="text-sm text-red-600 col-span-full">{state.error}</p>}
-        <Input name="name" label="Item name" required error={state.fieldErrors?.name?.[0]} />
-        <Input name="price" type="number" step="0.01" min="0" label="Price" required error={state.fieldErrors?.price?.[0]} />
-        <Select name="categoryId" label="Category" options={categories.map((c) => ({ value: c.id, label: c.name }))} placeholder="No category" />
-        <div className="flex items-end"><Button type="submit" loading={pending}>Add Item</Button></div>
+        <Input name="name" label={th.menuItems.itemName} required error={state.fieldErrors?.name?.[0]} />
+        <Input name="price" type="number" step="0.01" min="0" label={th.menuItems.price} required error={state.fieldErrors?.price?.[0]} />
+        <Select name="categoryId" label={th.menuItems.category} options={categories.map((c) => ({ value: c.id, label: c.name }))} placeholder="ไม่มีหมวดหมู่" />
+        <div className="flex items-end"><Button type="submit" loading={pending}>{th.menuItems.addItem}</Button></div>
       </form>
 
       <div className="bg-white border rounded-xl divide-y">
         {items.length === 0 ? (
-          <p className="p-6 text-sm text-gray-500">No menu items yet.</p>
+          <p className="p-6 text-sm text-gray-500">{th.menuItems.noItems}</p>
         ) : (
           items.map((item) => (
             <MenuItemRow key={item.id} item={item} restaurant={restaurant} />
@@ -66,9 +67,9 @@ function MenuItemRow({ item, restaurant }: { item: MenuItem; restaurant: Restaur
         <p className="text-sm text-gray-500">{formatPrice(item.price)}</p>
       </div>
       <div className="flex items-center gap-2">
-        <Badge variant={item.isAvailable ? "success" : "warning"}>{item.isAvailable ? "Available" : "Unavailable"}</Badge>
-        <Button variant="outline" size="sm" onClick={handleToggle} loading={isTogglingAvail}>Toggle</Button>
-        <Button variant="danger" size="sm" onClick={handleDelete} loading={isDeleting}>Delete</Button>
+        <Badge variant={item.isAvailable ? "success" : "warning"}>{item.isAvailable ? th.menuItems.available : th.menuItems.unavailable}</Badge>
+        <Button variant="outline" size="sm" onClick={handleToggle} loading={isTogglingAvail}>{th.categories.toggle}</Button>
+        <Button variant="danger" size="sm" onClick={handleDelete} loading={isDeleting}>{th.categories.delete}</Button>
       </div>
     </div>
   );

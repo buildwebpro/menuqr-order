@@ -3,7 +3,7 @@ import Link from "next/link";
 import { UtensilsCrossed, Mail } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Forgot Password – MenuQR",
+  title: "รีเซ็ตรหัสผ่าน – MenuQR",
 };
 
 export default function ForgotPasswordPage() {
@@ -15,9 +15,9 @@ export default function ForgotPasswordPage() {
             <UtensilsCrossed className="text-orange-500" size={28} />
             MenuQR
           </Link>
-          <h1 className="text-2xl font-bold text-gray-900">Reset your password</h1>
+          <h1 className="text-2xl font-bold text-gray-900">รีเซ็ตรหัสผ่านของคุณ</h1>
           <p className="text-gray-500 text-sm mt-1">
-            We&apos;ll send you instructions to reset your password.
+            เราจะส่งคำแนะนำในการรีเซ็ตรหัสผ่านของคุณ
           </p>
         </div>
 
@@ -28,23 +28,23 @@ export default function ForgotPasswordPage() {
             </div>
             <div>
               <p className="text-sm text-gray-600 leading-relaxed">
-                Password reset via email is coming soon. For now, please{" "}
+                การรีเซ็ตรหัสผ่านทางอีเมลจะเร็วๆ นี้ สำหรับตอนนี้ โปรด{" "}
                 <a
                   href="mailto:support@menuqr.app"
                   className="text-orange-600 font-medium hover:underline"
                 >
-                  contact support
+                  ติดต่อสนับสนุน
                 </a>{" "}
-                to reset your password.
+                เพื่อรีเซ็ตรหัสผ่านของคุณ
               </p>
             </div>
           </div>
         </div>
 
         <p className="text-center text-sm text-gray-500 mt-6">
-          Remember your password?{" "}
+          จำรหัสผ่านแล้วหรือ?{" "}
           <Link href="/auth/signin" className="text-orange-600 font-medium hover:underline">
-            Sign in
+            เข้าสู่ระบบ
           </Link>
         </p>
       </div>

@@ -6,8 +6,9 @@ import { restaurants, menuItems, menuCategories, userSubscriptions, subscription
 import { eq, and, count } from "drizzle-orm";
 import { Store, UtensilsCrossed, LayoutList, QrCode, ArrowRight, Plus } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { th } from "@/lib/i18n";
 
-export const metadata: Metadata = { title: "Dashboard – MenuQR" };
+export const metadata: Metadata = { title: "แดชบอร์ด – MenuQR" };
 
 export default async function DashboardPage() {
   const session = await getSession();
@@ -52,19 +53,19 @@ export default async function DashboardPage() {
     <div>
       <div className="mb-8">
         <h1 className="text-2xl font-bold text-gray-900">
-          Welcome back, {session.name.split(" ")[0]} 👋
+          {th.dashboard.welcome} {session.name.split(" ")[0]} 👋
         </h1>
-        <p className="text-gray-500 mt-1">Here&apos;s an overview of your restaurant menu.</p>
+        <p className="text-gray-500 mt-1">{th.dashboard.overviewMenu}</p>
       </div>
 
       {/* Plan badge */}
       <div className="mb-6 flex items-center gap-3">
         <Badge variant={plan?.id === "pro" ? "success" : "default"}>
-          {plan?.name || "Free"} Plan
+          {plan?.name || th.subscription.free} {th.general.add}
         </Badge>
         {plan?.id !== "pro" && (
           <Link href="/dashboard/subscription" className="text-xs text-orange-600 font-medium hover:underline flex items-center gap-1">
-            Upgrade to Pro <ArrowRight size={12} />
+            {th.dashboard.upgradeToPro} <ArrowRight size={12} />
           </Link>
         )}
       </div>
@@ -75,16 +76,16 @@ export default async function DashboardPage() {
           <div className="w-16 h-16 bg-orange-50 rounded-full flex items-center justify-center mx-auto mb-4">
             <Store className="text-orange-500" size={28} />
           </div>
-          <h2 className="text-lg font-semibold text-gray-900 mb-2">Set up your restaurant</h2>
+          <h2 className="text-lg font-semibold text-gray-900 mb-2">{th.restaurant.setupYourRestaurant}</h2>
           <p className="text-gray-500 text-sm mb-6 max-w-sm mx-auto">
-            Get started by creating your restaurant profile. You&apos;ll then be able to add menu categories and items.
+            {th.restaurant.setupRestaurantDescription}
           </p>
           <Link
             href="/dashboard/restaurant"
             className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-medium px-6 py-2.5 rounded-lg transition-colors text-sm"
           >
             <Plus size={16} />
-            Create restaurant
+            {th.restaurant.createRestaurant}
           </Link>
         </div>
       ) : (
@@ -93,22 +94,22 @@ export default async function DashboardPage() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
             <StatCard
               icon={<UtensilsCrossed size={20} className="text-orange-500" />}
-              label="Menu Items"
+              label={th.dashboard.menuItems}
               value={itemCount}
-              subtext={itemLimit ? `/ ${itemLimit} max` : "Unlimited"}
+              subtext={itemLimit ? `/ ${itemLimit}` : th.general.unlimited}
               href="/dashboard/menu-items"
             />
             <StatCard
               icon={<LayoutList size={20} className="text-blue-500" />}
-              label="Categories"
+              label={th.sidebar.categories}
               value={categoryCount}
               href="/dashboard/categories"
             />
             <StatCard
               icon={<QrCode size={20} className="text-green-500" />}
-              label="Public Menu"
-              value="Live"
-              subtext="Scan to view"
+              label={th.dashboard.publicMenu}
+              value="เปิด"
+              subtext={th.dashboard.scanToView}
               href="/dashboard/qr-code"
             />
           </div>
@@ -117,7 +118,7 @@ export default async function DashboardPage() {
           {itemLimit && (
             <div className="bg-white rounded-xl border border-gray-200 p-5 mb-8">
               <div className="flex justify-between text-sm mb-2">
-                <span className="font-medium text-gray-700">Menu item usage</span>
+                <span className="font-medium text-gray-700">{th.dashboard.usageLimit}</span>
                 <span className="text-gray-500">{itemCount} / {itemLimit}</span>
               </div>
               <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
@@ -128,11 +129,10 @@ export default async function DashboardPage() {
               </div>
               {itemCount >= itemLimit && (
                 <p className="text-xs text-red-600 mt-2">
-                  You&apos;ve reached the limit.{" "}
+                  {th.dashboard.itemLimit}{" "}
                   <Link href="/dashboard/subscription" className="underline font-medium">
-                    Upgrade to Pro
-                  </Link>{" "}
-                  for unlimited items.
+                    {th.dashboard.upgradeToPro}
+                  </Link>
                 </p>
               )}
             </div>
@@ -143,26 +143,26 @@ export default async function DashboardPage() {
             <QuickLink
               href="/dashboard/menu-items"
               icon={<UtensilsCrossed size={18} className="text-orange-500" />}
-              title="Manage menu items"
-              description="Add, edit, or update your dishes"
+              title={th.dashboard.manageMenuItems}
+              description={th.dashboard.addEditUpdate}
             />
             <QuickLink
               href="/dashboard/categories"
               icon={<LayoutList size={18} className="text-blue-500" />}
-              title="Manage categories"
-              description="Organize your menu sections"
+              title={th.dashboard.manageCategories}
+              description={th.dashboard.organizeMenuSections}
             />
             <QuickLink
               href="/dashboard/qr-code"
               icon={<QrCode size={18} className="text-green-500" />}
-              title="View & download QR code"
-              description="Print it for your tables"
+              title="ดู & ดาวน์โหลด QR Code"
+              description="พิมพ์เพื่อโต๊ะของคุณ"
             />
             <QuickLink
               href={`/menu/${restaurant.slug}`}
               icon={<Store size={18} className="text-purple-500" />}
-              title="View public menu"
-              description="See what your customers see"
+              title={th.dashboard.viewPublicMenu}
+              description={th.dashboard.seeWhatCustomersSee}
               external
             />
           </div>

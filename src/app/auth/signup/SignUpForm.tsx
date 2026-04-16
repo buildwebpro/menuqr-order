@@ -18,16 +18,16 @@ export function SignUpForm() {
         </div>
       )}
       <Input
-        label="Full name"
+        label="ชื่อเต็ม"
         name="name"
         type="text"
-        placeholder="Your name"
+        placeholder="ชื่อของคุณ"
         required
         autoComplete="name"
         error={state.fieldErrors?.name?.[0]}
       />
       <Input
-        label="Email"
+        label="อีเมล"
         name="email"
         type="email"
         placeholder="you@example.com"
@@ -36,16 +36,16 @@ export function SignUpForm() {
         error={state.fieldErrors?.email?.[0]}
       />
       <Input
-        label="Password"
+        label="รหัสผ่าน"
         name="password"
         type="password"
-        placeholder="At least 8 characters"
+        placeholder="อย่างน้อย 8 ตัวอักษร"
         required
         autoComplete="new-password"
         error={state.fieldErrors?.password?.[0]}
       />
       <Button type="submit" className="w-full" loading={isPending}>
-        Create account
+        สร้างบัญชี
       </Button>
     </form>
   );
