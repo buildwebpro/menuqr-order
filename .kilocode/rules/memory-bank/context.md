@@ -1,87 +1,47 @@
-# Active Context: Next.js Starter Template
+# Active Context: Restaurant Online Menu SaaS
 
 ## Current State
 
-**Template Status**: ✅ Ready for development
+**Project Status**: ✅ MVP implemented (core multi-tenant menu platform)
 
-The template is a clean Next.js 16 starter with TypeScript and Tailwind CSS 4. It's ready for AI-assisted expansion to build any type of application.
+Application has been transformed from starter template into a multi-tenant Restaurant Online Menu SaaS with authentication, dashboard management, public menu pages, QR code generation, and plan gating logic.
 
 ## Recently Completed
 
-- [x] Base Next.js 16 setup with App Router
-- [x] TypeScript configuration with strict mode
-- [x] Tailwind CSS 4 integration
-- [x] ESLint configuration
-- [x] Memory bank documentation
-- [x] Recipe system for common features
+- [x] Added database layer with Drizzle (`src/db/schema.ts`, migrations, config)
+- [x] Implemented auth system (signup/signin/signout, session cookies, middleware)
+- [x] Built multi-tenant data model for restaurants, categories, items, subscriptions
+- [x] Added server actions for restaurant/category/menu item CRUD
+- [x] Added public-facing landing and pricing pages
+- [x] Added auth pages (`/auth/signin`, `/auth/signup`, `/auth/forgot-password`)
+- [x] Added public restaurant menu route by slug (`/menu/[slug]`)
+- [x] Added dashboard shell with sidebar and summary page
+- [x] Added dashboard pages for restaurant, categories, menu items, QR code, subscription
+- [x] Added QR code generation + PNG download support
+- [x] Added setup/deployment guide and Supabase SQL schema + RLS in `SETUP.md`
 
 ## Current Structure
 
 | File/Directory | Purpose | Status |
 |----------------|---------|--------|
-| `src/app/page.tsx` | Home page | ✅ Ready |
-| `src/app/layout.tsx` | Root layout | ✅ Ready |
-| `src/app/globals.css` | Global styles | ✅ Ready |
-| `.kilocode/` | AI context & recipes | ✅ Ready |
+| `src/app/page.tsx` | Landing page | ✅ Implemented |
+| `src/app/pricing/page.tsx` | Pricing page | ✅ Implemented |
+| `src/app/auth/*` | Authentication pages | ✅ Implemented |
+| `src/app/(dashboard)/dashboard/*` | Dashboard pages | ✅ Implemented |
+| `src/app/menu/[slug]/page.tsx` | Public restaurant menu | ✅ Implemented |
+| `src/actions/*` | Server actions for auth/menu management | ✅ Implemented |
+| `src/components/*` | Reusable UI and navigation components | ✅ Implemented |
+| `src/db/*` | Drizzle schema/migrations | ✅ Implemented |
+| `SETUP.md` | Supabase schema + RLS + deploy guide | ✅ Implemented |
 
 ## Current Focus
 
-The template is ready. Next steps depend on user requirements:
-
-1. What type of application to build
-2. What features are needed
-3. Design/branding preferences
-
-## Quick Start Guide
-
-### To add a new page:
-
-Create a file at `src/app/[route]/page.tsx`:
-```tsx
-export default function NewPage() {
-  return <div>New page content</div>;
-}
-```
-
-### To add components:
-
-Create `src/components/` directory and add components:
-```tsx
-// src/components/ui/Button.tsx
-export function Button({ children }: { children: React.ReactNode }) {
-  return <button className="px-4 py-2 bg-blue-600 text-white rounded">{children}</button>;
-}
-```
-
-### To add a database:
-
-Follow `.kilocode/recipes/add-database.md`
-
-### To add API routes:
-
-Create `src/app/api/[route]/route.ts`:
-```tsx
-import { NextResponse } from "next/server";
-
-export async function GET() {
-  return NextResponse.json({ message: "Hello" });
-}
-```
-
-## Available Recipes
-
-| Recipe | File | Use Case |
-|--------|------|----------|
-| Add Database | `.kilocode/recipes/add-database.md` | Data persistence with Drizzle + SQLite |
-
-## Pending Improvements
-
-- [ ] Add more recipes (auth, email, etc.)
-- [ ] Add example components
-- [ ] Add testing setup recipe
+1. Run final lint/typecheck pass and resolve any remaining type issues.
+2. Optional: wire full Supabase client/server SDK instead of mock billing/auth/data stack.
+3. Optional: add edit modals for categories/menu items and drag-sort interactions.
 
 ## Session History
 
 | Date | Changes |
 |------|---------|
-| Initial | Template created with base setup |
+| 2026-04-16 | Built MVP Restaurant Online Menu SaaS with multi-tenant dashboard, public menu pages, QR code, plan gating, and deployment documentation |
